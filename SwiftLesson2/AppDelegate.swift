@@ -15,6 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        UserDefaults.standard.set(true, forKey: "SignInLaunched")
+        if UserDefaults.standard.bool(forKey: "SignIn") {
+            let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+            let tableController = storyBoard.instantiateViewController(withIdentifier: "Table")
+            self.window?.rootViewController = tableController
+        }
+        UserDefaults.standard.synchronize()
         // Override point for customization after application launch.
         return true
     }
