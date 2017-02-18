@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053A89AB1E5745A90067ABB5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A89AA1E5745A90067ABB5 /* LoginViewController.swift */; };
+		053A89AD1E574BF60067ABB5 /* AuthorizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053A89AC1E574BF60067ABB5 /* AuthorizationManager.swift */; };
+		0576BB6F1E57B13400F7769C /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0576BB6E1E57B13400F7769C /* image.jpg */; };
+		0576BB711E57B1EB00F7769C /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0576BB701E57B1EB00F7769C /* CustomCollectionViewCell.swift */; };
+		0576BB731E57B21200F7769C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0576BB721E57B21200F7769C /* CustomTableViewCell.swift */; };
 		7C0A73DB1E546896000A51FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A73DA1E546896000A51FF /* AppDelegate.swift */; };
 		7C0A73DD1E546896000A51FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A73DC1E546896000A51FF /* ViewController.swift */; };
 		7C0A73E01E546896000A51FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A73DE1E546896000A51FF /* Main.storyboard */; };
@@ -15,6 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		053A89AA1E5745A90067ABB5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		053A89AC1E574BF60067ABB5 /* AuthorizationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizationManager.swift; sourceTree = "<group>"; };
+		0576BB6E1E57B13400F7769C /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		0576BB701E57B1EB00F7769C /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
+		0576BB721E57B21200F7769C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		7C0A73D71E546896000A51FF /* SwiftLesson2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLesson2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0A73DA1E546896000A51FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C0A73DC1E546896000A51FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +45,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0576BB741E57B69900F7769C /* SuportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A73DA1E546896000A51FF /* AppDelegate.swift */,
+				0576BB6E1E57B13400F7769C /* image.jpg */,
+				7C0A73E11E546896000A51FF /* Assets.xcassets */,
+				7C0A73E61E546896000A51FF /* Info.plist */,
+			);
+			name = SuportingFiles;
+			sourceTree = "<group>";
+		};
+		0576BB751E57B6B600F7769C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				7C0A73DE1E546896000A51FF /* Main.storyboard */,
+				7C0A73E31E546896000A51FF /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		0576BB761E57B6C400F7769C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0576BB771E57B6D900F7769C /* Cells */,
+				7C0A73DC1E546896000A51FF /* ViewController.swift */,
+				053A89AA1E5745A90067ABB5 /* LoginViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0576BB771E57B6D900F7769C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0576BB701E57B1EB00F7769C /* CustomCollectionViewCell.swift */,
+				0576BB721E57B21200F7769C /* CustomTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		0576BB781E57B6F000F7769C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				053A89AC1E574BF60067ABB5 /* AuthorizationManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		7C0A73CE1E546896000A51FF = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +111,10 @@
 		7C0A73D91E546896000A51FF /* SwiftLesson2 */ = {
 			isa = PBXGroup;
 			children = (
-				7C0A73DA1E546896000A51FF /* AppDelegate.swift */,
-				7C0A73DC1E546896000A51FF /* ViewController.swift */,
-				7C0A73DE1E546896000A51FF /* Main.storyboard */,
-				7C0A73E11E546896000A51FF /* Assets.xcassets */,
-				7C0A73E31E546896000A51FF /* LaunchScreen.storyboard */,
-				7C0A73E61E546896000A51FF /* Info.plist */,
+				0576BB781E57B6F000F7769C /* Managers */,
+				0576BB761E57B6C400F7769C /* Controllers */,
+				0576BB751E57B6B600F7769C /* Storyboards */,
+				0576BB741E57B69900F7769C /* SuportingFiles */,
 			);
 			path = SwiftLesson2;
 			sourceTree = "<group>";
@@ -127,6 +182,7 @@
 				7C0A73E51E546896000A51FF /* LaunchScreen.storyboard in Resources */,
 				7C0A73E21E546896000A51FF /* Assets.xcassets in Resources */,
 				7C0A73E01E546896000A51FF /* Main.storyboard in Resources */,
+				0576BB6F1E57B13400F7769C /* image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +193,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0576BB731E57B21200F7769C /* CustomTableViewCell.swift in Sources */,
+				053A89AB1E5745A90067ABB5 /* LoginViewController.swift in Sources */,
+				0576BB711E57B1EB00F7769C /* CustomCollectionViewCell.swift in Sources */,
+				053A89AD1E574BF60067ABB5 /* AuthorizationManager.swift in Sources */,
 				7C0A73DD1E546896000A51FF /* ViewController.swift in Sources */,
 				7C0A73DB1E546896000A51FF /* AppDelegate.swift in Sources */,
 			);
@@ -302,6 +362,7 @@
 				7C0A73EB1E546896000A51FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

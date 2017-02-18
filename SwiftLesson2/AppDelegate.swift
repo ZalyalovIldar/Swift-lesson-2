@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        if AuthorizationManager.sharedInstance.isAuthorized() == .notAuthorized {
+            
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let loginController : UIViewController? = storyboard.instantiateViewController(withIdentifier: "LoginController")
+            loginController?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            
+            window?.makeKeyAndVisible()
+            window?.rootViewController?.present(loginController!, animated: false, completion: nil)
+        }
+               
         return true
     }
 
