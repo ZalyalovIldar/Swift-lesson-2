@@ -8,50 +8,84 @@
 
 import UIKit
 
-struct Location {
-    var latitute: Double
-    var longitute: Double
-    var name: String
+struct UserData {
+    var imageName:String 
+    var text:String
     
-    init(name: String) {
-        self.name = name
-        self.latitute = 41.4
-        self.longitute = 21.4
-    }
-    
-    init(latititute: Double, longitute: Double) {
-        self.latitute = latititute
-        self.longitute = longitute
-        self.name = "name"
+    init(imageName: String, text: String) {
+        self.imageName = imageName
+        self.text = text
     }
 }
+
+
+
 
 class ViewController: UIViewController{
     @IBOutlet weak var tableView: UITableView!
-    var someId: Int?
-    var dataArr:Array<String> = ["News","News","News"]
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var dataArr:Array<UserData> = Array()
+    
+     let cellIdentifier = "tableCell"
+     let collectionCellId = "collectionCell"
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        let lat: Double  = 4.009231
-        let long: Double = 5.01020
-        let location = Location(latititute: lat, longitute: long)
-        self.calculateSmth(location: location)
-    }
+        
+        
+        let user1 = UserData(imageName: "2.jpg", text: "Follow")
+        let user2 = UserData(imageName: "2.jpg", text: "Me")
+        let user3 = UserData(imageName: "2.jpg", text: "To")
+        
+        dataArr.append(user1)
+        dataArr.append(user2)
+        dataArr.append(user3)
+        collectionView.register(UINib(nibName:"CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: collectionCellId)
+        tableView.register(UINib(nibName: "TableViewCell", bundle: nil), forCellReuseIdentifier:cellIdentifier )
+        
+            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: Custom methods
-    
-    func calculateSmth(location: Location){
         
-        print("Lat: \(location.latitute) \nLong: \(location.longitute)")
     }
+    
+    @IBAction func segmentControllerAction(_ sender: UISegmentedControl) {
+        
+        switch sender.selectedSegmentIndex {
+        case 0:
+            collectionView.isHidden = true
+            tableView.isHidden = false
+            
+        case 1:
+            collectionView.isHidden = false
+            tableView.isHidden = true
+            
+        default: break
+            
+            
+        }
+    }
+
+    
+    @IBAction func logoutButonDidClicked(_ sender: UIBarButtonItem) {
+        let loginController =  storyboard?.instantiateViewController(withIdentifier: "loginController")
+        loginController?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        present(loginController!, animated: true, completion: nil)
+        LoginManager.sharedInstance.logOut()
+    }
+    
+    
+    
+    
+
+    
+   
 }
+
+    //MARK: Custom methods 
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -59,17 +93,52 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataArr.count;
+       return self.dataArr.count;
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "cell"
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
         
-        cell.textLabel?.text = self.dataArr[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! TableViewCell
+        
+        let model = dataArr[indexPath.row]
+        cell.labelTableCell.text = model.text
+        let image = UIImage(named: model.imageName)
+        cell.imageTableCell.image = image
+        
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 110
+    }
 }
+
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: collectionCellId, for: indexPath as IndexPath) as! CollectionViewCell
+        let model = dataArr[indexPath.row]
+        cell.image.image = UIImage(named: model.imageName)
+        cell.label.text = model.text
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 200, height: 200)
+    }
+    
+    
+    
+    
+    
+}
+
 
