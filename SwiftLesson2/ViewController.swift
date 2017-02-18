@@ -8,50 +8,65 @@
 
 import UIKit
 
-struct Location {
-    var latitute: Double
-    var longitute: Double
-    var name: String
+struct SomeData {
+    var imageName: String
+    var text: String
     
-    init(name: String) {
-        self.name = name
-        self.latitute = 41.4
-        self.longitute = 21.4
-    }
-    
-    init(latititute: Double, longitute: Double) {
-        self.latitute = latititute
-        self.longitute = longitute
-        self.name = "name"
+    init(imageName: String, text: String) {
+        self.imageName = imageName
+        self.text = text
     }
 }
 
-class ViewController: UIViewController{
+class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     var someId: Int?
-    var dataArr:Array<String> = ["News","News","News"]
+    lazy var dataArr:Array<SomeData> = {
+        var dataArr = Array<SomeData>()
+        var someData = SomeData(imageName: "image.jpg", text: "Some text")
+        for i in 1...10 {
+            dataArr.append(someData)
+        }
+        
+        return dataArr
+        
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let lat: Double  = 4.009231
-        let long: Double = 5.01020
-        let location = Location(latititute: lat, longitute: long)
-        self.calculateSmth(location: location)
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: Custom methods
-    
-    func calculateSmth(location: Location){
+    //MARK: Action handlers
+    @IBAction func signOutBarButtonDidClicked(_ sender: Any) {
         
-        print("Lat: \(location.latitute) \nLong: \(location.longitute)")
+        AuthorizationManager.sharedInstance.signOut()
+        let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginController")
+        loginViewController?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        present(loginViewController!, animated: true, completion: nil)
+    }
+
+    @IBAction func segmentControllDidChangeValue(_ sender: UISegmentedControl) {
+        if (sender.selectedSegmentIndex == 0)
+        {
+            tableView.isHidden = false
+            self.collectionView.isHidden = true
+        }else
+        {
+            self.collectionView.isHidden = false
+            tableView.isHidden = true
+        }
     }
 }
+
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -65,11 +80,25 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "cell"
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath)
-        
-        cell.textLabel?.text = self.dataArr[indexPath.row]
+        let cell: CustomTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! CustomTableViewCell
+        cell.customImageView.image = UIImage(named: dataArr[indexPath.row].imageName)
+        cell.customTexLable.text = dataArr[indexPath.row].text
         
         return cell
     }
+}
+
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.dataArr.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: CustomCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CustomCollectionViewCell
+        cell.imageView.image = UIImage(named: dataArr[indexPath.row].imageName)
+        cell.textLabel.text = dataArr[indexPath.row].text
+        return cell
+    }
+
 }
 
