@@ -12,18 +12,26 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let loginned:Bool = LoginManager.sharedInstance.loginStatus();
+        let loginned:Bool = LoginManager().loginStatus();
         
         if !loginned {
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            let loginViewController: UIViewController? = storyboard.instantiateViewController(withIdentifier: "loginController")
-            loginViewController?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            guard let loginViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "loginController") as UIViewController? else{
+                    return false
+                }
+           
+            loginViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+          
+            guard let myWindow = window else{
+                return false
+            }
             
-            window?.makeKeyAndVisible()
-            window?.rootViewController?.present(loginViewController!, animated: false, completion: nil)
+            myWindow.makeKeyAndVisible()
+            myWindow.rootViewController?.present(loginViewController, animated: false, completion: nil)
             
         }
         

@@ -12,10 +12,7 @@ struct UserData {
     var imageName:String 
     var text:String
     
-    init(imageName: String, text: String) {
-        self.imageName = imageName
-        self.text = text
-    }
+   
 }
 
 
@@ -71,10 +68,14 @@ class ViewController: UIViewController{
 
     
     @IBAction func logoutButonDidClicked(_ sender: UIBarButtonItem) {
-        let loginController =  storyboard?.instantiateViewController(withIdentifier: "loginController")
-        loginController?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
-        present(loginController!, animated: true, completion: nil)
-        LoginManager.sharedInstance.logOut()
+        guard let loginController = storyboard?.instantiateViewController(withIdentifier: "loginController") else {
+            NSLog("not found controller with identifire")
+            return
+        }
+
+        loginController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+        present(loginController, animated: true, completion: nil)
+        LoginManager().logOut()
     }
     
     

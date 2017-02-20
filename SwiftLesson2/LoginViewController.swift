@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
         
         
         
-        let status:Bool = LoginManager.sharedInstance.login(login: loginTextField.text!,
+        let status:Bool = LoginManager().login(login: loginTextField.text!,
                                                             password: passwordTextField.text!)
         if status {
             dismiss(animated: true, completion: nil)

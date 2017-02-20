@@ -9,7 +9,7 @@
 import Foundation
 
 class LoginManager {
-    static let sharedInstance = LoginManager()
+//    static let sharedInstance = LoginManager()
     
     private let loginStatusKey = "loginStatus"
     
@@ -24,14 +24,18 @@ class LoginManager {
     }
     
     func logOut() {
+        
         UserDefaults.standard.set(false, forKey: loginStatusKey)
     }
     
     func loginStatus() -> Bool {
-        guard let status:Bool = UserDefaults.standard.value(forKey: loginStatusKey) as! Bool? else{
+        if let _ = UserDefaults.standard.value(forKey: loginStatusKey) as! Bool?
+        {
+            return true
+        }else{
             return false
         }
-        return status
+        
     }
     
     
