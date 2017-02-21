@@ -24,11 +24,12 @@ class LoginManager {
     }
     
     func logOut() {
-        
+        UserDefaults.standard.synchronize()
         UserDefaults.standard.set(false, forKey: loginStatusKey)
     }
     
     func loginStatus() -> Bool {
+        UserDefaults.standard.synchronize()
         if let _ = UserDefaults.standard.value(forKey: loginStatusKey) as! Bool?
         {
             return true
