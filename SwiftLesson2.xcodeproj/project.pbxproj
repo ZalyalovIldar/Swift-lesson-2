@@ -7,17 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0063CE381E7AF27E003807A9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0063CE371E7AF27E003807A9 /* LoginViewController.swift */; };
+		00C1B7461EB0730100AED923 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C1B7451EB0730100AED923 /* LoginManager.swift */; };
+		00D115931E88F7950086F10B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D115911E88F7950086F10B /* TableViewCell.swift */; };
+		00D115941E88F7950086F10B /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00D115921E88F7950086F10B /* TableViewCell.xib */; };
+		00D115971E88F7AC0086F10B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D115951E88F7AC0086F10B /* CollectionViewCell.swift */; };
+		00D115981E88F7AC0086F10B /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00D115961E88F7AC0086F10B /* CollectionViewCell.xib */; };
 		7C0A73DB1E546896000A51FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A73DA1E546896000A51FF /* AppDelegate.swift */; };
-		7C0A73DD1E546896000A51FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A73DC1E546896000A51FF /* ViewController.swift */; };
+		7C0A73DD1E546896000A51FF /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0A73DC1E546896000A51FF /* GalleryViewController.swift */; };
 		7C0A73E01E546896000A51FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A73DE1E546896000A51FF /* Main.storyboard */; };
 		7C0A73E21E546896000A51FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A73E11E546896000A51FF /* Assets.xcassets */; };
 		7C0A73E51E546896000A51FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C0A73E31E546896000A51FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0063CE371E7AF27E003807A9 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../LoginViewController.swift; sourceTree = "<group>"; };
+		00C1B7451EB0730100AED923 /* LoginManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
+		00D115911E88F7950086F10B /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		00D115921E88F7950086F10B /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
+		00D115951E88F7AC0086F10B /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		00D115961E88F7AC0086F10B /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		7C0A73D71E546896000A51FF /* SwiftLesson2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftLesson2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C0A73DA1E546896000A51FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7C0A73DC1E546896000A51FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7C0A73DC1E546896000A51FF /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		7C0A73DF1E546896000A51FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7C0A73E11E546896000A51FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C0A73E41E546896000A51FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +47,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00D115991E88F7B90086F10B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				00D115911E88F7950086F10B /* TableViewCell.swift */,
+				00D115921E88F7950086F10B /* TableViewCell.xib */,
+				00D115951E88F7AC0086F10B /* CollectionViewCell.swift */,
+				00D115961E88F7AC0086F10B /* CollectionViewCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		7C0A73CE1E546896000A51FF = {
 			isa = PBXGroup;
 			children = (
@@ -55,7 +78,10 @@
 			isa = PBXGroup;
 			children = (
 				7C0A73DA1E546896000A51FF /* AppDelegate.swift */,
-				7C0A73DC1E546896000A51FF /* ViewController.swift */,
+				0063CE371E7AF27E003807A9 /* LoginViewController.swift */,
+				00C1B7451EB0730100AED923 /* LoginManager.swift */,
+				7C0A73DC1E546896000A51FF /* GalleryViewController.swift */,
+				00D115991E88F7B90086F10B /* Cells */,
 				7C0A73DE1E546896000A51FF /* Main.storyboard */,
 				7C0A73E11E546896000A51FF /* Assets.xcassets */,
 				7C0A73E31E546896000A51FF /* LaunchScreen.storyboard */,
@@ -96,7 +122,6 @@
 				TargetAttributes = {
 					7C0A73D61E546896000A51FF = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 6F5JN764XD;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C0A73E51E546896000A51FF /* LaunchScreen.storyboard in Resources */,
+				00D115941E88F7950086F10B /* TableViewCell.xib in Resources */,
 				7C0A73E21E546896000A51FF /* Assets.xcassets in Resources */,
 				7C0A73E01E546896000A51FF /* Main.storyboard in Resources */,
+				00D115981E88F7AC0086F10B /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +164,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7C0A73DD1E546896000A51FF /* ViewController.swift in Sources */,
+				00D115971E88F7AC0086F10B /* CollectionViewCell.swift in Sources */,
+				0063CE381E7AF27E003807A9 /* LoginViewController.swift in Sources */,
+				00D115931E88F7950086F10B /* TableViewCell.swift in Sources */,
+				7C0A73DD1E546896000A51FF /* GalleryViewController.swift in Sources */,
 				7C0A73DB1E546896000A51FF /* AppDelegate.swift in Sources */,
+				00C1B7461EB0730100AED923 /* LoginManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,7 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6F5JN764XD;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftLesson2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.SwiftLesson2;
@@ -274,7 +305,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 6F5JN764XD;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftLesson2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.personal.SwiftLesson2;
@@ -302,6 +333,7 @@
 				7C0A73EB1E546896000A51FF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
