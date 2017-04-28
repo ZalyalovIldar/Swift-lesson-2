@@ -13,9 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let loginned:Bool = LoginManager().loginStatus();
+        
+        if !loginned {
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            guard let loginViewController: UIViewController = storyboard.instantiateViewController(withIdentifier: "login") as UIViewController? else{
+                return false
+            }
+            
+            loginViewController.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal
+            
+            guard let myWindow = window else{
+                return false
+            }
+            
+            myWindow.makeKeyAndVisible()
+            myWindow.rootViewController?.present(loginViewController, animated: false, completion: nil)
+            
+    }
         return true
     }
 
@@ -40,7 +56,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
 }
-
