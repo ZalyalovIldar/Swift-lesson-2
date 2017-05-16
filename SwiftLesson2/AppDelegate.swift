@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let userDefaults = UserDefaults.standard
+        if userDefaults.bool(forKey: "entered") {
+            
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "SecondNavigation")
+            self.window?.rootViewController = initialViewController
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 
